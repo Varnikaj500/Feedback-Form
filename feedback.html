@@ -1,47 +1,106 @@
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #555;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+    }
+    input[type="submit"] {
+      background-color: #0070d2;
+      color: white;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    input[type="submit"]:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
 
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<div class="container">
+  <h2>Contact Support</h2>
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DgK000002Jocf" method="POST">
+    <input type="hidden" name="orgid" value="00DgK000002Jocf">
+    <input type="hidden" name="retURL" value="http://">
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
+    <!-- Debug mode (optional) -->
+    <!-- <input type="hidden" name="debug" value=1> -->
+    <!-- <input type="hidden" name="debugEmail" value="rapt.varnika.jain@outlook.com"> -->
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DgK000002Jocf" method="POST">
+    <label for="name">Contact Name</label>
+    <input id="name" name="name" maxlength="80" type="text" required>
 
-<input type=hidden name="orgid" value="00DgK000002Jocf">
-<input type=hidden name="retURL" value="http://">
+    <label for="email">Email</label>
+    <input id="email" name="email" maxlength="80" type="email" required>
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="rapt.varnika.jain@outlook.com">                                  -->
-<!--  ----------------------------------------------------------------------  -->
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" maxlength="40" type="text">
 
-<label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+    <label for="subject">Subject</label>
+    <input id="subject" name="subject" maxlength="80" type="text" required>
 
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="5" required></textarea>
 
-<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+    <label for="reason">Case Reason</label>
+    <select id="reason" name="reason" required>
+      <option value="">--Select a Reason--</option>
+      <option value="Installation">Installation</option>
+      <option value="Equipment Complexity">Equipment Complexity</option>
+      <option value="Performance">Performance</option>
+      <option value="Breakdown">Breakdown</option>
+      <option value="Equipment Design">Equipment Design</option>
+      <option value="Feedback">Feedback</option>
+      <option value="Other">Other</option>
+    </select>
 
-<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+    <input type="submit" value="Submit Case">
+  </form>
+</div>
 
-<label for="description">Description</label><textarea name="description"></textarea><br>
-
-<label for="reason">Case Reason</label><select  id="reason" name="reason"><option value="">--None--</option><option value="Installation">Installation</option>
-<option value="Equipment Complexity">Equipment Complexity</option>
-<option value="Performance">Performance</option>
-<option value="Breakdown">Breakdown</option>
-<option value="Equipment Design">Equipment Design</option>
-<option value="Feedback">Feedback</option>
-<option value="Other">Other</option>
-</select><br>
-
-<input type="submit" name="submit">
-
-</form>
+</body>
+</html>
